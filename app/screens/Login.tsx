@@ -1,20 +1,13 @@
 import React, { useState } from "react";
-import {
-  View,
-  StyleSheet,
-  TextInput,
-  Button,
-  Text,
-  TouchableHighlight,
-} from "react-native";
+import { View, StyleSheet, Text, TouchableHighlight } from "react-native";
 import firebase from "../../firebase";
 import AppButon from "../components/AppButton";
 import AppTextInput from "../components/AppTextInput";
-import SignOut from "./SignOut";
+import colors from "../config/colors";
 
 const Login = ({ navigation }: any) => {
-  const [user, onChangeUser] = useState("Name@gmail.com");
-  const [passw, onChangePasswd] = useState("password");
+  const [user, onChangeUser] = useState("");
+  const [passw, onChangePasswd] = useState("");
   const [isSigningIn, setIsSigningIn] = useState(true);
 
   function createUser(email: string, passwd: string) {
@@ -41,21 +34,9 @@ const Login = ({ navigation }: any) => {
 
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-      // User is signed in.
-      var displayName = user.displayName;
-      var email = user.email;
-      var emailVerified = user.emailVerified;
-      var photoURL = user.photoURL;
-      var isAnonymous = user.isAnonymous;
-      var uid = user.uid;
-      var providerData = user.providerData;
-      console.log(user);
       navigation.navigate("SignOut");
-      // ...
     } else {
-      // User is signed out.
-      // ...
-      console.log("you just signed out");
+      console.log("No one is signed in");
     }
   });
 
@@ -66,7 +47,7 @@ const Login = ({ navigation }: any) => {
           {isSigningIn ? "SIGN IN !" : "CREATE AN ACCOUNT !!"}
         </Text>
         <TouchableHighlight onPress={() => setIsSigningIn(!isSigningIn)}>
-          <Text>
+          <Text style={styles.subtitle}>
             {isSigningIn
               ? "or create an account by tapping here"
               : "or sign in by tapping here"}
@@ -113,11 +94,16 @@ const styles = StyleSheet.create({
     padding: 30,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: colors.primary,
   },
   input: {},
   titleView: { flex: 1, justifyContent: "center", alignItems: "center" },
   titleText: {
     fontSize: 60,
+    color: colors.tertiary,
+  },
+  subtitle: {
+    color: colors.secondary,
   },
 });
 

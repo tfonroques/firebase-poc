@@ -1,10 +1,8 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useEffect, useState } from "react";
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import React from "react";
+import { StyleSheet } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Login from "./app/screens/Login";
 import SignOut from "./app/screens/SignOut";
-import firebase from "./firebase";
 import colors from "./app/config/colors";
 import { NavigationContainer } from "@react-navigation/native";
 

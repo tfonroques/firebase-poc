@@ -9,9 +9,9 @@ export default {
   light: "#f8f4f4",
   dark: "#0c0c0c",
 
-  /* primary: "#00202e",
+  primary: "#00202e",
   secondary: "#4a9396",
-  tertiary: "#fdd03b", */
+  tertiary: "#fdd03b", 
 
   /* primary: "#28464B",
   secondary: "#931621",
@@ -33,9 +33,9 @@ export default {
   secondary: "#427AA1",
   tertiary: "#EBF2FA", */
 
-  primary: "#FFFAF1",
+ /*  primary: "#FFFAF1",
   secondary: "#6C6061",
-  tertiary: "#FF6392",
+  tertiary: "#FF6392", */
 
   palette1: "#00202e",
   palette2: "#4a9396",
